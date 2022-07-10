@@ -32,7 +32,7 @@ const Graph = ({ data }) => {
     const raw = data.map(item => { return item.timestamp - data[0].timestamp })
     const apmtemp = data.filter(item => {return item.correct===item.keypressed && item.timestamp}).map(item => { return item.timestamp - data[0].timestamp })
     for (let i = 1; i <= Math.floor(raw[raw.length - 1] / 1000) + 1; i++) {
-        final.push([i, raw.filter(item => { return item < i * 1000 && item > (i - 1) * 1000 }).length * 10,apmtemp.filter(item => { return item < i * 1000 && item > (i - 1) * 1000 }).length * 10])
+        final.push([i, raw.filter(item => { return item < i * 1000 && item > (i - 1) * 1000 }).length * 60,apmtemp.filter(item => { return item < i * 1000 && item > (i - 1) * 1000 }).length * 60])
     }
     return (
         <Chart
