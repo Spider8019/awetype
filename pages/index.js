@@ -193,7 +193,6 @@ export default function Home() {
               <Tooltip title="Move (Ctrl + M)">
                 <p className={styles.controlbutton} onClick={changeString}><RestartAltIcon className={styles.icon} /> </p>
               </Tooltip>
-              {length}
               {(!testFinished && length != -1) && <Tooltip title="Finish (Ctrl + F)">
                 <p className={styles.controlbutton} onClick={finishTest}><DoneIcon className={styles.icon} /> </p>
               </Tooltip>}
