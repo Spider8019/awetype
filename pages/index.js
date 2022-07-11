@@ -52,9 +52,8 @@ export default function Home() {
         finishTest()
       }
       else if (event.which == 8 && length !== -1) {
-        if(givenString[length]===" ")
-        {
-          const audio=new Audio("http://freesoundeffect.net/sites/default/files/printerbeep-403-sound-effect-20834351.mp3")
+        if (givenString[length] === " ") {
+          const audio = new Audio("http://freesoundeffect.net/sites/default/files/printerbeep-403-sound-effect-20834351.mp3")
           audio.play()
           return
         }
@@ -168,7 +167,7 @@ export default function Home() {
           ?
           <>
             {testFinished ?
-              <div  className={styles.resultContainer}>
+              <div className={styles.resultContainer}>
                 <div>
                   <h1>Results</h1>
                   <p><span style={{ width: "100px", display: "inline-block" }}>raw</span>  <span className={styles.span}>{Math.floor(((givenString.match(/\ \b/g).length + 1) / ((whatYouHaveTyped.current[whatYouHaveTyped.current.length - 1].timestamp - whatYouHaveTyped.current[0].timestamp) / 1000)) * 60)}</span></p>
@@ -182,12 +181,12 @@ export default function Home() {
               </div>
               :
               <div className={styles.containerMain}>
-                  <p ref={str} id={styles.spansParent}>
-                    {givenString.split("").map((item, index) => {
-                      return (<span id={"span" + (index + 1)} className={index===length&&styles.blinker} key={index}>{item}</span>)
-                    })
-                    }
-                  </p>
+                <p ref={str} id={styles.spansParent}>
+                  {givenString.split("").map((item, index) => {
+                    return (<span id={"span" + (index + 1)} className={index === length && styles.blinker} key={index}>{item}</span>)
+                  })
+                  }
+                </p>
               </div>
             }
             <div className={styles.flexView}>
