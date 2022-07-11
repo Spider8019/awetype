@@ -52,15 +52,20 @@ export default function Home() {
         finishTest()
       }
       else if (event.which == 8 && length !== -1) {
+        if(givenString[length]===" ")
+        {
+          const audio=new Audio("http://freesoundeffect.net/sites/default/files/printerbeep-403-sound-effect-20834351.mp3")
+          audio.play()
+          return
+        }
         str.current.children.item(length).style.color = "gray"
         str.current.children.item(length).style.textDecoration = "none";
-
         setLength(length--)
       }
       else if (event.which === 20) {
         setInfo({ ...info, capslock: capsLockDetect(event) })
       }
-      else if (event.key.match(/^[a-zA-Z\s]*$/) && !event.shiftKey && !event.ctrlKey && !event.altKey) {
+      else if (event.key.match(/[a-zA-Z\s]/) && !event.shiftKey && !event.ctrlKey && !event.altKey) {
         setLength(length++);
         whatYouHaveTyped.current.push({ timestamp: Date.now(), keypressed: event.key, correct: givenString[length] })
 
@@ -128,7 +133,6 @@ export default function Home() {
   }
 
   return (
-    <AnimatePresence exitBeforeEnter>
 
     <div className={styles.container}>
       <Head>
@@ -164,7 +168,7 @@ export default function Home() {
           ?
           <>
             {testFinished ?
-              <motion.div  transition={{duration:0.3}} initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y:50, opacity: 0 }} className={styles.resultContainer}>
+              <div  className={styles.resultContainer}>
                 <div>
                   <h1>Results</h1>
                   <p><span style={{ width: "100px", display: "inline-block" }}>raw</span>  <span className={styles.span}>{Math.floor(((givenString.match(/\ \b/g).length + 1) / ((whatYouHaveTyped.current[whatYouHaveTyped.current.length - 1].timestamp - whatYouHaveTyped.current[0].timestamp) / 1000)) * 60)}</span></p>
@@ -175,21 +179,22 @@ export default function Home() {
                 <div>
                   <Graph data={whatYouHaveTyped.current} />
                 </div>
-              </motion.div>
+              </div>
               :
-              <motion.div className={styles.containerMain}>
-                  <motion.p transition={{duration:0.3}} initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y:50, opacity: 0 }} ref={str} id={styles.spansParent}>
+              <div className={styles.containerMain}>
+                  <p ref={str} id={styles.spansParent}>
                     {givenString.split("").map((item, index) => {
-                      return (<span id={"span" + (index + 1)} key={index}>{item}</span>)
+                      return (<span id={"span" + (index + 1)} className={index===length&&styles.blinker} key={index}>{item}</span>)
                     })
                     }
-                  </motion.p>
-              </motion.div>
+                  </p>
+              </div>
             }
             <div className={styles.flexView}>
               <Tooltip title="Move (Ctrl + M)">
                 <p className={styles.controlbutton} onClick={changeString}><RestartAltIcon className={styles.icon} /> </p>
               </Tooltip>
+              {length}
               {(!testFinished && length != -1) && <Tooltip title="Finish (Ctrl + F)">
                 <p className={styles.controlbutton} onClick={finishTest}><DoneIcon className={styles.icon} /> </p>
               </Tooltip>}
@@ -202,7 +207,6 @@ export default function Home() {
           </div>
       }
     </div>
-    </AnimatePresence>  
 
   )
 }

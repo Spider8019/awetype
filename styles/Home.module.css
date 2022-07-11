@@ -27,28 +27,11 @@
 .containerMain span{
 
   letter-spacing: 1px;
-  border-radius:0.2rem;
 }
 .blinker{
   position:relative;
-}
-.blinker::before{
-  position:Absolute;
-  content:"";
-  left:0%;
-  height:70%;
-  width:2px;
-  border-radius:5rem;
-  top:15%;
-  background:orange;
-  animation:blink .5s infinite;
-  animation-direction: alternate;
-}
-@keyframes blink {
-  to{
-    opacity:0;
-  }
-  
+  border-top:1px solid red;
+  /* background:linear-gradient(45deg,#f3cb04,#f25849); */
 }
 .resultContainer{
   display: grid;
