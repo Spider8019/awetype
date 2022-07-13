@@ -23,15 +23,19 @@
   font-size:1.5rem;
   color:grey;
   word-spacing: 3;
+  position:relative;
 }
 .containerMain span{
 
   letter-spacing: 1px;
 }
 .blinker{
-  position:relative;
-  border-top:1px solid red;
-  /* background:linear-gradient(45deg,#f3cb04,#f25849); */
+
+  background:var(--base-color);
+  border-radius:0 0 1rem 1rem;
+  
+  border-top:2px solid rgb(255, 225, 0);
+  color:white;
 }
 .resultContainer{
   display: grid;
