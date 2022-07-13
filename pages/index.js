@@ -158,9 +158,9 @@ export default function Home() {
               <span style={{ color: "#27a653" }}>e</span>
             </p>
             <select onChange={(e) => { setTheme(e.target.value); changeString() }}>
+              <option value="gita">gita</option>
               <option value="defense">defense</option>
               <option value="religion">religion</option>
-              <option value="gita">gita</option>
             </select>
           </div>
           <div className={styles.signature}>
