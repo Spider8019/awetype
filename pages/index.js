@@ -13,21 +13,11 @@ export default function Home() {
   const [givenString, setGivenString] = useState("hinduism is an indian")
   const whatYouHaveTyped = useRef([])
   const [length, setLength] = useState(-1)
-  const [isFocused, setFocused] = useState(false)
   const [testFinished, setTestFinished] = useState(false)
   const [theme, setTheme] = useState("gita")
   const [info, setInfo] = useState({ capslock: false })
 
   const str = useRef(null)
-
-
-  const onFocus = () => {
-    setFocused(true)
-  };
-
-  const onBlur = () => {
-    setFocused(false)
-  };
 
 
   const capsLockDetect = (event) => {
@@ -86,15 +76,9 @@ export default function Home() {
       }
 
     }
-    onFocus();
     window.addEventListener('keydown', onScroll)
-    window.addEventListener("focus", onFocus);
-    window.addEventListener("blur", onBlur);
-
 
     return () => {
-      window.removeEventListener("focus", onFocus);
-      window.removeEventListener("blur", onBlur);
       window.removeEventListener('keydown', onScroll);
     };
   }, [givenString])
@@ -121,7 +105,7 @@ export default function Home() {
   }
 
   const changeString = () => {
-    setGivenString(strings.filter(item => item.type === theme)[0].data[Math.floor(Math.random() * (strings.filter(item => item.type === theme)[0].data.length))].split(" ").slice(0,30).join(" ").toLowerCase().replace(/[^a-zA-Z]/g, " "))
+    setGivenString(strings.filter(item => item.type === theme)[0].data[Math.floor(Math.random() * (strings.filter(item => item.type === theme)[0].data.length))].split(" ").slice(0, 30).join(" ").toLowerCase().replace(/[^a-zA-Z ]/g, ""))
     setLength(-1);
     setTestFinished(false)
     whatYouHaveTyped.current = []
@@ -172,51 +156,54 @@ export default function Home() {
               <div className={`${styles.bulb} ${info.capslock ? styles.on : null}`}></div>
             </Tooltip>
           </div>
-          {
-            isFocused
-              ?
-              <>
-                {testFinished ?
-                  <div className={styles.resultContainer}>
-                    <div>
-                      <h1>Results</h1>
-                      <p><span style={{ width: "100px", display: "inline-block" }}>raw</span>  <span className={styles.span}>{Math.floor(((whatYouHaveTyped.current.filter(item => { return item.correct === " " }).length + 1) / ((whatYouHaveTyped.current[whatYouHaveTyped.current.length - 1].timestamp - whatYouHaveTyped.current[0].timestamp) / 1000)) * 60)}</span></p>
-                      <p style={{ color: "var(--base-color)" }}><span style={{ width: "100px", display: "inline-block" }}>wpm</span>  <span className={styles.span}>{findWpm(whatYouHaveTyped.current)}</span></p>
-                      <p><span style={{ width: "100px", display: "inline-block" }}>accuracy</span>  <span className={styles.span}>{((findWpm(whatYouHaveTyped.current) / (Math.floor(((whatYouHaveTyped.current.filter(item => { return item.correct === " " }).length + 1) / ((whatYouHaveTyped.current[whatYouHaveTyped.current.length - 1].timestamp - whatYouHaveTyped.current[0].timestamp) / 1000)) * 60))) * 100).toFixed(0)}%</span></p>
+          {testFinished ?
+            <div className={styles.resultContainer}>
+              <div>
+                <h1>Results</h1>
+                <p><span style={{ width: "100px", display: "inline-block" }}>raw</span>  <span className={styles.span}>{Math.floor(((whatYouHaveTyped.current.filter(item => { return item.correct === " " }).length + 1) / ((whatYouHaveTyped.current[whatYouHaveTyped.current.length - 1].timestamp - whatYouHaveTyped.current[0].timestamp) / 1000)) * 60)}</span></p>
+                <p style={{ color: "var(--base-color)" }}><span style={{ width: "100px", display: "inline-block" }}>wpm</span>  <span className={styles.span}>{findWpm(whatYouHaveTyped.current)}</span></p>
+                <p><span style={{ width: "100px", display: "inline-block" }}>accuracy</span>  <span className={styles.span}>{((findWpm(whatYouHaveTyped.current) / (Math.floor(((whatYouHaveTyped.current.filter(item => { return item.correct === " " }).length + 1) / ((whatYouHaveTyped.current[whatYouHaveTyped.current.length - 1].timestamp - whatYouHaveTyped.current[0].timestamp) / 1000)) * 60))) * 100).toFixed(0)}%</span></p>
 
-                    </div>
-                    <div>
-                      <Graph data={whatYouHaveTyped.current} />
-                    </div>
-                  </div>
-                  :
-                  <div className={styles.containerMain}>
-                    <p ref={str} id={styles.spansParent}>
-                      {givenString.split("").map((item, index) => {
-                        return (<span id={"span" + (index + 2)} className={index === length + 1 ? styles.blinker : null} key={index}>{item}</span>)
-                      })
-                      }
-                    </p>
-                  </div>
-                }
-                <div className={styles.flexView}>
-                  <Tooltip title="Move (Ctrl + M)">
-                    <p className={styles.controlbutton} onClick={changeString}><RestartAltIcon className={styles.icon} /> </p>
-                  </Tooltip>
-                  {(!testFinished && length != -1) && <Tooltip title="Close (Ctrl + C)">
-                    <p className={styles.controlbutton} onClick={finishTest}><DoneIcon className={styles.icon} /> </p>
-                  </Tooltip>}
-                </div>
-              </>
-              :
-              <div className={styles.notFocusContainer}>
-                <p>Click screen to focus</p>
               </div>
+              <div>
+                <Graph data={whatYouHaveTyped.current} />
+              </div>
+            </div>
+            :
+            <div className={styles.containerMain}>
+              <p ref={str} id={styles.spansParent}>
+                {givenString.split("").map((item, index) => {
+                  return (<span id={"span" + (index + 2)} className={index === length + 1 ? styles.blinker : null} key={index}>{item}</span>)
+                })
+                }
+              </p>
+            </div>
           }
+          <div className={styles.flexView}>
+            <Tooltip title="Move (Ctrl + M)">
+              <p className={styles.controlbutton} onClick={changeString}><RestartAltIcon className={styles.icon} /> </p>
+            </Tooltip>
+            {/* {(!testFinished && length != -1) && <Tooltip title="Close (Ctrl + C)">
+                    <p className={styles.controlbutton} onClick={finishTest}><DoneIcon className={styles.icon} /> </p>
+                  </Tooltip>} */}
+          </div>
         </div>
       </BrowserView>
       <MobileView>
-        <p>Use laptop or computer</p>
+        <div style={{textAlign:"Center"}}>
+          <p><span style={{ color: "#f3cb04" }}>a</span>
+            <span style={{ color: "#27a653" }}>w</span>
+            <span style={{ color: "#37abf2" }}>e</span>
+            <span style={{ color: "#f17798" }}>t</span>
+            <span style={{ color: "#f25849" }}>y</span>
+            <span style={{ color: "#f3cb04" }}>p</span>
+            <span style={{ color: "#27a653" }}>e</span>
+          </p>
+          <p>Use laptop or computer</p>
+          <div className={styles.signature}>
+            <p>spider8019</p>
+          </div>
+        </div>
       </MobileView>
     </>
 
