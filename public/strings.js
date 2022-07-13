@@ -34,6 +34,33 @@ const strings = [
             "Religion has played a highly important role in the lives of human beings. Judaism, Christianity, Islam, Hinduism and Buddhism are five of the great religions of the world.",
             "The word Hindu is an exonym, and while Hinduism has been called the oldest religion in the world, many practitioners refer to their religion as Sanātana Dharma"
         ]
+    },
+    {
+        type: "gita",
+        data: ["Unattached everywhere and not delighted Equanimous in good or bad, happy or dejected Neither welcomes, nor hates, evil designs Is a person of steady wisdom, who will reign",
+            "Unperturbed in misery and in pleasure Free from all attachment and desire Devoid of fear, anger, and rage Makes a person of steady wisdom, making him a Sage",
+            "Abandoning all desires of mind and heart himself Achieving satisfaction in the Self, by the Self O, Partha that man is full of delight And is a man of steady wisdom and Light",
+            "In the Gita, a Pandava brother Arjuna loses his will to fight and has a discussion with his charioteer Krishna , about duty, action, and renunciation. The Gita has three major themes: knowledge, action, and love.",
+            "The Deoband (seminary) and others also said that Gita is not a religious book. It is knowledge, science; it is curiosity, it is solution, Gita is life, Sharma said. Gita contains the dialogue between Lord Krishna and Arjuna.",
+            "The Bhagavad Gita is entirely representational and highly symbolic. There is no real battlefield or fight to be won; the entire text is a representation of the battle that goes on in our minds.",
+            "Sanskrit was the main language and widely spoken from Satyug untill Dwapar yug. So, Lord Sri Rama and Lord Sri Krishna used to speak Sanskrit in their respective areas. All the granths viz Ramayana, Mahabharata, Bhagwad Geeta, Vedas, Puraans and Upanishads are written in Sanskrit language.",
+            "Krishna Dvaipayana, better known as Vyasa or Vedavyasa, is a central and revered sage portrayed in most Hindu traditions. He is traditionally regarded as the author of the Mahabharata. He is also regarded by many Hindus as the compiler of a number of significant scriptures.",
+            "The essence of Bhagavad Gita can be well understood by knowing its five main topics – Isvara (God), Jiva (living entity), Prakriti (Material Nature), Kala (time) and Karma Action",
+            "Believed to be the single most influential philosophical text shaping spiritual thought and life, the Bhagavad Gita is said to be the second-largest selling book in the world and the largest in India. It is an epic scripture that has the answers to all our problems.",
+            "What is the Veda? The Aryans called their most sacred text Veda, meaning the 'knowledge'. It was believed to have arisen from the infallible 'hearing' (śruti), by ancient seers, of the sacred deposit of words whose recitation and contemplation bring stability and wellbeing to both the natural and human worlds.",
+            "The Bhagavad Gita is a synthesis and compendium of Hindu spiritual ideas on Dharma, Bhakti, Karma, Moksha, Raja Yoga etc. Alongside Ramayana, the Bhagavad Gits is an important Hindu Scripture and is counted amongst the classics of Indian spirituality.",
+            "Over a billion people hold Bhagavad Gita in highest esteem, which encompasses the entire Vedic thought. Oldest manuscript of Gita, circa 1492, is with British in Bodleian Library, Oxford University.",
+            "Srimad Bhagavad Gita teaches you how to handle that knowledge. It not only inculcates in you, the right and unbiased perspective of observing and knowing your own self as well as the entire creation but also teaches you how to handle that knowledge acquired through such observance",
+            "While Indians aspire to bag a foreign degree, some Harvard University students, on the other hand, are studying the Bhagavad Gita and Ramayana. While Indians aspire to bag a foreign degree, some Harvard University students, on the other hand, are studying the Bhagavad Gita and Ramayana.",
+            "There is sufficient evidence available now to suggest that Krishna was indeed a historical figure, who lived about 5000 years ago. This evidence is not just literary but also archaeological, geographical as well as astronomical, he claims.",
+            "In Hindu scriptures, there are 18 puranas – each dedicated to a particular name for God – and each establishing that name as supreme. The Shiva purana establishes Lord Shiva as the greatest. The Vishnu purana establishes Lord Vishnu as the greatest. The Shrimad Bhagvad Purana establishes Lord Krishna as the greatest",
+            "The figure of Lord Krishna is depicted as having blue or blue-black skin. He holds a flute (bansuri) and sometimes accompanied by a cow or cowherd. Krishna is also known by many other names, such as Govinda, Madhusudhana, Vasudeva and Mukunda",
+            "Jara the hunter was hunting the deer, while the lord Krishna was resting in the forest. That hunter misunderstood the moving foot of Krishna as a hidden deer and shot a lethal arrow that pierced into Krishna's feet",
+            "The best and most effective way to read Bhagavad Gita is as a devotee of Lord Krishna, under the guidance of a pure devotee of Lord Krishna who represents one of the four Vaisnava Sampradayas. Without this approach the main point of Bhagavad Gita will not be clear.",
+            "Lord Krishna says: I have been arriving and will arrive every time the evil gets an upper hand over the fair and good. I shall appear to protect the noble-hearted from those who are evil. I shall come back in every age and era to re-establish the rule of truth",
+            "To love without condition, to talk without intention, to give without reason, care without expectation, that's the spirit of true love",
+            "Vishnu. Vaishnavism is the sect within Hinduism that worships Vishnu. He is considered as the Para Brahman , the Preserver god of the Trimurti (the Hindu Trinity), and his many incarnations. Vaishnavites regard him to be eternal and the strongest and supreme God."
+        ]
     }
 ]
 

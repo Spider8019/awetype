@@ -15,7 +15,7 @@ export default function Home() {
   const [length, setLength] = useState(-1)
   const [isFocused, setFocused] = useState(false)
   const [testFinished, setTestFinished] = useState(false)
-  const [theme, setTheme] = useState("defense")
+  const [theme, setTheme] = useState("gita")
   const [info, setInfo] = useState({ capslock: false })
 
   const str = useRef(null)
@@ -121,7 +121,7 @@ export default function Home() {
   }
 
   const changeString = () => {
-    setGivenString(strings.filter(item => item.type === theme)[0].data[Math.floor(Math.random() * (strings.filter(item => item.type === theme)[0].data.length))].toLowerCase().replace(/[^a-zA-Z ]/g, "").slice(0, 100))
+    setGivenString(strings.filter(item => item.type === theme)[0].data[Math.floor(Math.random() * (strings.filter(item => item.type === theme)[0].data.length))].toLowerCase().replace(/[^a-zA-Z ]/g, " ").slice(0, 100))
     setLength(-1);
     setTestFinished(false)
     whatYouHaveTyped.current = []
@@ -160,6 +160,7 @@ export default function Home() {
             <select onChange={(e) => { setTheme(e.target.value); changeString() }}>
               <option value="defense">defense</option>
               <option value="religion">religion</option>
+              <option value="gita">gita</option>
             </select>
           </div>
           <div className={styles.signature}>
