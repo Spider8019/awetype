@@ -121,7 +121,7 @@ export default function Home() {
   }
 
   const changeString = () => {
-    setGivenString(strings.filter(item => item.type === theme)[0].data[Math.floor(Math.random() * (strings.filter(item => item.type === theme)[0].data.length))].toLowerCase().replace(/[^a-zA-Z ]/g, " ").slice(0, 100))
+    setGivenString(strings.filter(item => item.type === theme)[0].data[Math.floor(Math.random() * (strings.filter(item => item.type === theme)[0].data.length))].split(" ").slice(0,30).join(" ").toLowerCase().replace(/[^a-zA-Z]/g, " "))
     setLength(-1);
     setTestFinished(false)
     whatYouHaveTyped.current = []
